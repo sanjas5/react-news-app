@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# React News App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This is a React.js application that serves as a news aggregator, pulling articles from various sources and displaying them in a clean, easy-to-read format.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Article search and filtering:** Users can search for articles by keyword and filter the results by date, category, and source.
+- **Personalized news feed:** Users can customize their news feed by selecting their preferred sources, categories, and authors.
+- **Mobile-responsive design:** The website is optimized for viewing on mobile devices, providing a seamless user experience across different screen sizes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1.  Clone the repository:
 
-### `npm test`
+    bashCopy code
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    `git clone https://github.com/sanjas5/react-news-app.git`
 
-### `npm run build`
+2.  Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    bashCopy code
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    `cd react-news-app`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3.  Install dependencies:
 
-### `npm run eject`
+    bashCopy code
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    `npm install`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1.  Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    bashCopy code
 
-## Learn More
+    `npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2.  Open your web browser and navigate to http://localhost:3000 to view the app.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## APIs Used
 
-### Code Splitting
+- **News API**: Provides a RESTful API for accessing news articles from various sources and publishers.
+- **The Guardian News API**: Provides access to articles and content from The Guardian newspaper.
+- **The New York Times API**: Allows access to articles and multimedia content from The New York Times.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies Used
 
-### Analyzing the Bundle Size
+- **React.js**: A JavaScript library for building user interfaces.
+- **React Router**: Declarative routing for React applications.
+- **React Query**: Hooks for fetching, caching, and updating asynchronous data in React.
+- **InfiniteQuery**: A part of React Query, provides hooks for infinite scrolling and data fetching.
+- **CSS**: Cascading Style Sheets for styling the user interface.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Running the Project in a Docker Container
 
-### Advanced Configuration
+This guide explains how to run the project within a Docker container. Docker allows you to package your application and its dependencies into a standardized unit for easy deployment across different environments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Prerequisites
 
-### Deployment
+Before you begin, make sure you have Docker installed on your machine. You can download and install Docker from the official Docker website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Steps
 
-### `npm run build` fails to minify
+1.  **Clone the Repository**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Clone the project repository from GitHub:
+
+    bashCopy code
+
+    `git clone <repository-url>`
+
+2.  **Navigate to the Project Directory**:
+
+    Navigate to the root directory of the project:
+
+    bashCopy code
+
+    `cd <project-directory>`
+
+3.  **Build the Docker Image**:
+
+    Build the Docker image using the provided Dockerfile:
+
+    bashCopy code
+
+    `docker build -t <image-name> .`
+
+    Replace `<image-name>` with the desired name for your Docker image.
+    Our case: `docker build -t react-news-app .`
+
+4.  **Run the Docker Container**:
+
+    Run a Docker container based on the built image:
+
+    bashCopy code
+
+    `docker run -d -p <host-port>:<container-port> <image-name>`
+
+    Replace `<host-port>` with the port on your host machine where you want to access the application, `<container-port>` with the port exposed by the application inside the container, and `<image-name>` with the name of the Docker image you built.
+
+    Our case: `docker run -d -p 3000:8080 react-news-app`
+
+5.  **Access the Application**:
+
+    Once the container is running, you can access the application by opening a web browser and navigating to `http://localhost:<host-port>`. Replace `<host-port>` with the port you specified in step 4.
+
+    Our case: `http://localhost:3000`
+
+6.  **Stop and Remove the Container** (Optional):
+
+        If you no longer need the container, you can stop and remove it using the following commands:
+
+        bashCopy code
+
+        `docker stop <container-id>
+
+    docker rm <container-id>`
+
+        Replace `<container-id>` with the ID or name of the Docker container.
+
+### Conclusion
+
+Congratulations! You have successfully run the project within a Docker container. Docker provides a convenient way to package and deploy application, making it easier to manage and scale in different environments.
+
+---
