@@ -43,7 +43,7 @@ function GuardianList() {
     isFetchingNextPage,
     hasNextPage,
   } = useInfiniteQuery({
-    queryKey: ["search", source, category, sortByDate, debouncedSearchTerm],
+    queryKey: ["search", debouncedSearchTerm, category, source, sortByDate],
     queryFn: fetchItems,
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
